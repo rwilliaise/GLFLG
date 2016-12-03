@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +43,7 @@ public class Display extends JPanel implements ActionListener {
 				renderComponent(component, g);
 			}
 		} catch(Exception e) {
+			g.drawString("There is no spoon", 100, 100);
 			timer.stop();
 		}
 	}
@@ -63,6 +64,11 @@ public class Display extends JPanel implements ActionListener {
 	public Image getImage(String path, Class<?> cl) {
 		return new ImageIcon(cl.getResource(path)).getImage();
 	}
+	
+	public File getFile() {
+		return null;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		repaint();
